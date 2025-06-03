@@ -1,0 +1,15 @@
+node_modules/
+
+storage/avatars/*
+!storage/avatars/default.webp
+
+# Package manager
+yarn.lock
+bun.lockb
+package-lock.json
+pnpm-lock.yaml
+
+.env
+
+drizzle
+../.idea.

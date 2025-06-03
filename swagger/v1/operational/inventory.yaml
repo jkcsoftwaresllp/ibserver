@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  title: Inventory API
+  description: APIs for managing warehouses, purchase orders, inventory batches, and stock adjustments.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api
+    description: Local server
+paths:
+  /warehouses:
+    get:
+      summary: Fetch warehouses
+      description: Retrieve a list of all warehouses.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        warehouse_id:
+                          type: integer
+                        name:
+                          type: string
+                        code:
+                          type: string
+                        capacity:
+                          type: integer
+                        city:
+                          type: string
+                        state:
+                          type: string
+                        pin_code:
+                          type: string
+                        is_active:
+                          type: boolean
+  /purchase-orders:
+    get:
+      summary: Fetch purchase orders
+      description: Retrieve a list of all purchase orders.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        purchase_order_id:
+                          type: integer
+                        po_number:
+                          type: string
+                        supplier_id:
+                          type: integer
+                        warehouse_id:
+                          type: integer
+                        order_date:
+                          type: string
+                          format: date
+                        status:
+                          type: string
+                        total_amount:
+                          type: number
+                          format: float
+  /inventory-batches:
+    get:
+      summary: Fetch inventory batches
+      description: Retrieve a list of all inventory batches.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        batch_id:
+                          type: integer
+                        batch_number:
+                          type: string
+                        supplier_id:
+                          type: integer
+                        warehouse_id:
+                          type: integer
+                        received_date:
+                          type: string
+                          format: date
+                        status:
+                          type: string
+                        total_cost:
+                          type: number
+                          format: float
+  /stock-adjustments:
+    get:
+      summary: Fetch stock adjustments
+      description: Retrieve a list of all stock adjustments.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        adjustment_id:
+                          type: integer
+                        batch_item_id:
+                          type: integer
+                        adjustment_type:
+                          type: string
+                        quantity_adjusted:
+                          type: integer
+                        reason:
+                          type: string
+                        remarks:
+                          type: string

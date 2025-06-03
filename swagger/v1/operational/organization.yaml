@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  title: Organization API
+  description: APIs for managing organizations.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api
+    description: Local server
+paths:
+  /organizations:
+    get:
+      summary: Fetch organizations
+      description: Retrieve a list of all organizations.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        organization_id:
+                          type: integer
+                        name:
+                          type: string
+                        about:
+                          type: string
+                        tagline:
+                          type: string
+                        gstin:
+                          type: string
+                        phone:
+                          type: string
+                        email:
+                          type: string
+                        is_active:
+                          type: boolean
