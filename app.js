@@ -1,8 +1,6 @@
 // Imports
 import express from 'express';
-import salesRoutes from './modules/sales/routes.js';
-import operationsRoutes from './modules/operations/routes.js';
-import analyticsRoutes from './modules/analytics/routes.js';
+// import userRoutes from './src/modules/operations/routes/users.route.js';
 
 // Variables
 const PORT = process.env.PORT || 8000;
@@ -10,11 +8,10 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 
 // Middlewares
+express.json();
 
 // Routes
-app.use('/api/v1/sales', salesRoutes);          // New sales domain
-app.use('/api/v1/operations', operationsRoutes); // New operations
-app.use('/api/v1/analytics', analyticsRoutes);   // New analytics
+// app.use('/api/v1/operations/users', userRoutes);
 
 // Start
 app.listen(PORT, () => {
